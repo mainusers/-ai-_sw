@@ -1,4 +1,4 @@
-# -ai-_sw, 차량 디스플레이 인포테인먼트 시스템(표정인식을 통한 노래 작곡, 눈깜빡임을 통한 알람 기능, 음성비서기능 포함)
+차량 디스플레이 인포테인먼트 시스템(표정인식을 통한 노래 작곡, 눈깜빡임을 통한 알람 기능, 음성비서기능 포함)
 blink_detact 코드 중 
 shape_predictor_68_face_landmarks 다운로드 사이트
 https://github.com/italojs/facial-landmarks-recognition/blob/master/shape_predictor_68_face_landmarks.dat
