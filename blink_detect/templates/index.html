@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Drowsiness Detection</title>
+    <script type="text/javascript">
+        function startDetection() {
+            fetch('/start_detection', {
+                method: 'POST'
+            }).then(response => {
+                if (response.ok) {
+                    document.getElementById('video_feed').style.display = 'block';
+                    document.getElementById('drowsiness_count').style.display = 'block';
+                    updateDrowsinessCount();
+                }
+            });
+        }
+
+        function updateDrowsinessCount() {
+            fetch('/get_drowsiness_count')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('drowsiness_count').innerText = 'Drowsiness Count: ' + data.drowsiness_count;
+                    setTimeout(updateDrowsinessCount, 1000); // 1초마다 업데이트
+                });
+        }
+    </script>
+</head>
+<body>
+    <h1>Drowsiness Detection</h1>
+    <button onclick="startDetection()">Start Detection</button>
+    <div>
+        <img id="video_feed" src="{{ url_for('video_feed') }}" style="display:none;">
+    </div>
+    <div id="drowsiness_count" style="display:none;">Drowsiness Count: {{ drowsiness_count }}</div>
+</body>
+</html>

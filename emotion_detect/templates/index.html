@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>감정 기반 감지</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+        }
+        .container {
+            padding: 20px;
+        }
+        .button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            margin: 10px;
+        }
+        .button:hover {
+            background-color: #45a049;
+        }
+        #emotion {
+            margin: 20px 0;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <h1>감정 기반 감지</h1>
+    <div class="container">
+        <button class="button" onclick="detectEmotion()">감정 감지</button>
+        <div id="emotion">감지된 감정: <span id="detectedEmotion">없음</span></div>
+    </div>
+
+    <script>
+        async function detectEmotion() {
+            try {
+                const response = await fetch('/detect_emotion', { method: 'POST' });
+                const data = await response.json();
+                document.getElementById('detectedEmotion').innerText = data.emotion;
+            } catch (error) {
+                console.error('감정 감지 중 오류 발생:', error);
+            }
+        }
+    </script>
+</body>
+</html>
