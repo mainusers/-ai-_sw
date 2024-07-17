@@ -6,6 +6,7 @@ https://github.com/italojs/facial-landmarks-recognition/blob/master/shape_predic
 가중치 파일은 학습시키거나 슬랙에 올려둠
 
 실행 아래 단계로 이루어 진다.
+
 1. 파이썬 가상환경 설정
 python -m venv myenv
 source myenv/bin/activate
